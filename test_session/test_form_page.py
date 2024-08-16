@@ -30,5 +30,4 @@ class TestForm:
         form_page.submit_form()
 
 #
-#
 # class ="modal-title h4" id="example-modal-sizes-title-lg" > Thanks for submitting the form < / div
