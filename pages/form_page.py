@@ -1,17 +1,17 @@
+from base_page import BasePage
+from config.links import Links
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-class FormPage:
-    def __init__(self, driver):
-        self.driver = driver
-        self.url = "https://demoqa.com/automation-practice-form"
+class FormPage(BasePage):
+
+    url = Links.FORM_PAGE
 
     def open(self):
         self.driver.get(self.url)
 
-    first_name_input = (By.ID, "firstName")
-    last_name_input = (By.ID, "lastName")
+    FIRSTNAME_FIELD = (By.ID, "firstName")
+    LASTNAME_FIELD = (By.ID, "lastName")
     email_input = (By.ID, "userEmail")
     gender_radio = (By.XPATH, "//label[text()='Male']")
     mobile_input = (By.ID, "userNumber")
@@ -70,4 +70,4 @@ class FormPage:
         city_input.send_keys("\n")
 
     def submit_form(self):
-        self.driver.find_element(*self.submit_button).click()
+        self.driver.find_element(self.submit_button).click()
